@@ -1,8 +1,9 @@
-#include "task.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
+
+#include "task.h"
 
 Task *new_task(const char *name, const char *description) {
     Task *task = malloc(sizeof(*task));

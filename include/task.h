@@ -13,6 +13,4 @@ typedef struct {
 
 Task *new_task(const char *name, const char *description);
 void mark_as_completed(Task *task);
-
-// will also free the memory
 void delete_task(Task *task);
