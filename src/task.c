@@ -1,22 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include <stdbool.h>
 
 #include "task.h"
 
-Task *new_task(const char *name, const char *description) {
+Task *new_task(char *name, char *description) {
+    static u32 next_id = 1;
+
     Task *task = malloc(sizeof(*task));
     if (!task) {
         return NULL;
     }
 
-    task->name = name;
-    task->description = description;
+    task->id = next_id++;
+    task->name = strdup(name);
+    task->description = strdup(description);
     task->created_at = time(NULL);
     task->is_completed = false;
 
-    printf("New task created");
     return task;
 }
 
@@ -29,7 +32,12 @@ void mark_as_completed(Task *task) {
 }
 
 void delete_task(Task *task) {
-    printf("Deleted task");
+    if (!task) {
+        return;
+    }
+
+    free(task->name);
+    free(task->description);
     free(task);
 }
 
