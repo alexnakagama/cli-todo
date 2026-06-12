@@ -5,13 +5,13 @@
 #include <time.h>
 
 typedef struct {
-    char *name;
-    char *description;
+    const char *name;
+    const char *description;
     time_t created_at;
     bool is_completed;
 } Task;
 
-Task new_task(const char *name, const char *description);
+Task *new_task(const char *name, const char *description);
 void mark_as_completed(Task *task);
 
 // will also free the memory
