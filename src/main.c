@@ -1,3 +1,7 @@
-int main() {
+#include <stdbool.h>
 
+int main() {
+    while (true) {
+        
+    }
 }
