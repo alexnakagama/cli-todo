@@ -29,5 +29,7 @@ void mark_as_completed(Task *task) {
 }
 
 void delete_task(Task *task) {
+    printf("Deleted task");
     free(task);
 }
+
