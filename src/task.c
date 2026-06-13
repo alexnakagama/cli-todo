@@ -6,6 +6,7 @@
 
 #include "task.h"
 
+// creates a new task
 Task *new_task(char *name, char *description) {
     static u32 next_id = 1;
 
@@ -23,6 +24,7 @@ Task *new_task(char *name, char *description) {
     return task;
 }
 
+// marks a task as completed
 void mark_as_completed(Task *task) {
     if (task->is_completed == false) {
         task->is_completed = true;
@@ -31,6 +33,7 @@ void mark_as_completed(Task *task) {
     printf("Marked task as completed");
 }
 
+// deletes a task freeing the memory
 void delete_task(Task *task) {
     if (!task) {
         return;
